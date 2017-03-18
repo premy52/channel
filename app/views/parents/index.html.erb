@@ -1,0 +1,14 @@
+
+<h1><%= pluralize(@parents.size, 'Parent Company')%> </h1>
+
+	<% @parents.each do |parent| %>
+		<strong><%= link_to(parent.corpname, parent) %></strong> | 
+		<%= pluralize(parent.banners_count, 'banner') %> </br>
+
+		<ul>
+			<% parent.banners.each do |banner| %>
+				<li><%= link_to(banner.banner_name, parent_banner_path(parent,banner)) %></li>	
+			<% end %>
+		</ul>		
+
+	<% end %>
